@@ -76,15 +76,16 @@ const boardEls = document.querySelector('board')
 const messageEl = document.querySelector('#message');
 const resetBtnEl = document.querySelector('#reset');
 
-grid.addEventListener('click', () => {
-    console.log("I work!");
-});
+
 
 /*-------------- Functions -------------*/
-// init();
+//init();
+
 function clicked(event) {
     console.log("clicked")
 }
+
+
 
 /*----------- Event Listeners ----------*/
 
@@ -92,14 +93,18 @@ const cards = document.querySelectorAll(".sqr");
 console.log(cards);
 const reset = document.querySelector("reset");
 
+grid.addEventListener('click', () => {
+    console.log("grid click event listener works!");
+});
 
-onclick = (squareEls) => {
-    console.log("square pressed");
-}
 
-onclick = (resetBtnEl) => {
+
+resetBtnEl.onclick = (reset) => {
     console.log("reset pressed");
 }
+
+
+
 
 
 // cards.addEventListener('click');
