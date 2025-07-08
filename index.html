@@ -5,52 +5,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="./app.js"></script>
-    <link rel="stylesheet" href="./css.style.css">
+
+    <link rel="stylesheet" href="./css/style.css">
     <title>Memory Enhancer</title>
+    <h1>MEMORY ENHANCER</h1>
 </head>
-
+<BR><BR>
+<div class="memory-container">
+    <div class="msg">Memory enhancement begins now.</div>
+    <div class="gameTimer">Memory enhancement ending.</div>
+    <div id="grid"></div>
+    <div id="score"></div>
 <body>
-    <div class="container">
-    <div class="row">
-    <div class="col-4">
-
-</div>
-            </div>
-
-
-                <section class="board">
-                    <div class="sqr" id="0"><span style='font-size:100px;'>&#10010;</span>
-                    </div>
-                    <div class="sqr" id="1"><span style='font-size:100px;'>&#10022;</span>
-                    </div>
-                    <div class="sqr" id="2"><span style='font-size:100px;'>&#10025;</span>
-                    </div>
-                    <div class="sqr" id="3"><span style='font-size:100px;'>&#10033;</span>
-                    </div>
-                    <div class="sqr" id="4"><span style='font-size:100px;'>&#10047;</span>
-                    </div>
-                    <div class="sqr" id="5"><span style='font-size:100px;'>&#9786;</span>
-                    </div>
-                    <div class="sqr" id="6"><span style='font-size:100px;'>&#9790;</span></div>
-                    <div class="sqr" id="7"><span style='font-size:100px;'>&#9829;</span></div>
-
-
-                    <div class="sqr" id="8"></div><span style='font-size:100px;'>&#9680;</span>
-
-                    <div class="sqr" id="9"></div>
-                    <div class="sqr" id="10"></div>
-                    <div class="sqr" id="12"></div>
-                    <div class="sqr" id="13"></div>
-                    <div class="sqr" id="14"></div>
-                    <div class="sqr" id="15"></div>
-                </section>
-
-
-
-                
-            </div>
-        </div>
+<center>
+    <div class="sqr" id="0"><span style='font-size:100px;'>&#10010;</span>
     </div>
-</body>
+    <div class="sqr" id="1"><span style='font-size:100px;'>&#10022;</span>
+    </div>
+    <div class="sqr" id="2"><span style='font-size:100px;'>&#10025;</span>
+    </div>
+    <div class="sqr" id="3"><span style='font-size:100px;'>&#10033;</span>
+    </div>
+    <div class="sqr" id="4"><span style='font-size:100px;'>&#10047;</span>
+    </div>
+    <div class="sqr" id="5"><span style='font-size:100px;'>&#9786;</span>
+    </div>
+    <div class="sqr" id="6"><span style='font-size:100px;'>&#9790;</span></div>
+    <div class="sqr" id="7"><span style='font-size:100px;'>&#9829;</span></div>
+    <div class="sqr" id="8"><span style='font-size:100px;'>&#9680;</span>
+    
+    
+    
+    
+    
+        <!-- <div class="sqr" id="9"></div>
+    <div class="sqr" id="10"></div>
+    <div class="sqr" id="12"></div>
+    <div class="sqr" id="13"></div>
+    <div class="sqr" id="14"></div>
+    <div class="sqr" id="15"></div> -->
 
+</section>
+    <button id="Restart">Restart</button>
+</body>
+</center>
 </html>
+
+
+
+
+<!-- 
+    <div class="sqr" id="0"><span style='font-size:100px;'>&#10010;</span>
+    </div>
+    <div class="sqr" id="1"><span style='font-size:100px;'>&#10022;</span>
+    </div>
+    <div class="sqr" id="2"><span style='font-size:100px;'>&#10025;</span>
+    </div>
+    <div class="sqr" id="3"><span style='font-size:100px;'>&#10033;</span>
+    </div>
+    <div class="sqr" id="4"><span style='font-size:100px;'>&#10047;</span>
+    </div>
+    <div class="sqr" id="5"><span style='font-size:100px;'>&#9786;</span>
+    </div>
+    <div class="sqr" id="6"><span style='font-size:100px;'>&#9790;</span></div>
+    <div class="sqr" id="7"><span style='font-size:100px;'>&#9829;</span></div>
+
+
+    <div class="sqr" id="8"></div><span style='font-size:100px;'>&#9680;</span>
+
+    <div class="sqr" id="9"></div>
+    <div class="sqr" id="10"></div>
+    <div class="sqr" id="12"></div>
+    <div class="sqr" id="13"></div>
+    <div class="sqr" id="14"></div>
+    <div class="sqr" id="15"></div>
+
+
+
+
+
+
+
+    <section class="board">
+        <div class="sqr" id="0"><span style='font-size:100px;'>&#10010;</span>
+        </div>
+        <div class="sqr" id="1"><span style='font-size:100px;'>&#10022;</span>
+        </div>
+        <div class="sqr" id="2"><span style='font-size:100px;'>&#10025;</span>
+        </div>
+        <div class="sqr" id="3"><span style='font-size:100px;'>&#10033;</span>
+        </div>
+        <div class="sqr" id="4"><span style='font-size:100px;'>&#10047;</span>
+        </div>
+        <div class="sqr" id="5"><span style='font-size:100px;'>&#9786;</span>
+        </div>
+        <div class="sqr" id="6"><span style='font-size:100px;'>&#9790;</span></div>
+        <div class="sqr" id="7"><span style='font-size:100px;'>&#9829;</span></div>
+
+
+        <div class="sqr" id="8"></div><span style='font-size:100px;'>&#9680;</span>
+
+        <div class="sqr" id="9"></div>
+        <div class="sqr" id="10"></div>
+        <div class="sqr" id="12"></div>
+        <div class="sqr" id="13"></div>
+        <div class="sqr" id="14"></div>
+        <div class="sqr" id="15"></div>
+    </section> -->
