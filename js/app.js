@@ -76,27 +76,31 @@ const boardEls = document.querySelector('board')
 const messageEl = document.querySelector('#message');
 const resetBtnEl = document.querySelector('#reset');
 
+grid.addEventListener('click', () => {
+    console.log("I work!");
+});
+
 /*-------------- Functions -------------*/
 // init();
-
+function clicked(event) {
+    console.log("clicked")
+}
 
 /*----------- Event Listeners ----------*/
 
 const cards = document.querySelectorAll(".sqr");
 console.log(cards);
-
 const reset = document.querySelector("reset");
 
-//
-onclick = (cards) => {
-    console.log("card selected");
+
+onclick = (squareEls) => {
+    console.log("square pressed");
 }
-
-// cards.addEventListener('click');
-// console.log("card selected")
-
-
 
 onclick = (resetBtnEl) => {
     console.log("reset pressed");
 }
+
+
+// cards.addEventListener('click');
+// console.log("card selected")
