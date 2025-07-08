@@ -7,9 +7,9 @@ const symbols = ['✚', '✦', '✩', '✱', '✿', '☺', '☾', '♥', '◐']
 const icons = [...symbols, ...symbols]
 
 
-const gameContainer = document.getElementById('game');
-    let firstCard = null;
-    let lockBoard = false;
+// const gameContainer = document.getElementById('game');
+//     let firstCard = null;
+//     let lockBoard = false;
 
 
 // //define variable for user's first symbol choice:
@@ -38,28 +38,28 @@ const gameContainer = document.getElementById('game');
 
 
 
-const winningCombos = [
-    [heavyGreekCross, heavyGreekCross],
-    [blackFourPointedStar, blackFourPointedStar],
-    [stressOutlinedWhiteStar, stressOutlinedWhiteStar],
-    [heavyAsterisk, heavyAsterisk],
-    [blackFlorette, blackFlorette],
-    [whiteSmilingFace, whiteSmilingFace],
-    [lastQuarterMoon, lastQuarterMoon],
-    [blackHeartSuit, blackHeartSuit],
-    [circleLeftBlack, circleLeftBlack],
-];
+// const winningCombos = [
+//     [heavyGreekCross, heavyGreekCross],
+//     [blackFourPointedStar, blackFourPointedStar],
+//     [stressOutlinedWhiteStar, stressOutlinedWhiteStar],
+//     [heavyAsterisk, heavyAsterisk],
+//     [blackFlorette, blackFlorette],
+//     [whiteSmilingFace, whiteSmilingFace],
+//     [lastQuarterMoon, lastQuarterMoon],
+//     [blackHeartSuit, blackHeartSuit],
+//     [circleLeftBlack, circleLeftBlack],
+// ];
 
 
-const message("Congratulations, you're psychic!");
-console.log("Congratulations, you're psychic!");
+// const message("Congratulations, you're psychic!");
+// console.log("Congratulations, you're psychic!");
 
 
 /*---------- Variables (state) ---------*/
-let board, sqr, sqrReverse, userChoice, winner
-let board = [];
-let sqr = [];
-let sqrReverse -= [];
+// let board, sqr, sqrReverse, userChoice, winner
+// let board = [];
+// let sqr = [];
+// let sqrReverse -= [];
 
 
 
@@ -73,17 +73,16 @@ const messageEl = document.querySelector('#message');
 const resetBtnEl = document.querySelector('#reset');
 
 /*-------------- Functions -------------*/
-init();
+// init();
 
-function newBoard(); 
-function renderBoard();
-function renderMessages();
+// function newBoard(); 
+// function renderBoard();
+// function renderMessages();
 
     
-const render = () => {
-    renderBoard();
-    renderMessages();
-}
+// const render = () => {
+//     renderBoard();
+//     renderMessages();
 
 
 //shuffle icons array
@@ -97,18 +96,22 @@ const render = () => {
 
 /*----------- Event Listeners ----------*/
 
-const grid = document.getElementById("grid")
-const scoreElement = document.getElementById("score")
-const restartButton = document.getElementById("restartButton");
-const msgEl = document.querySelector(".msg")
+const cards = document.querySelectorAll(".sqr");
+console.log(cards);
+
+//cards has grouped all sqrs with same event listener wanted
+//dom events lesson: adding event listener to multiple things
+//only console log the click working, don't complicate it
 
 
 
 
 
 
-
-
+// const grid = document.getElementById("grid")
+// const scoreElement = document.getElementById("score")
+// const restartButton = document.getElementById("restartButton");
+// const msgEl = document.querySelector(".msg")
 
 
 

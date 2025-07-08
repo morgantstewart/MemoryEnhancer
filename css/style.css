@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: lightgrey;
+    background-color: rgb(232, 225, 225);
     margin: 0;
     min-width: auto;
 }
@@ -14,14 +14,14 @@ body {
 
 
 .sqr {
-    border: #9aad62 5px solid;
+    border: #000000 4px solid;
     width: 18%;
     aspect-ratio: 1/1;
     margin: 3px;
     font-size: 32px;
     gap: 20px;
     text-align: center;
-    background-color: cyan;
+    background-color: rgb(255, 255, 255);
 }
 
 
