@@ -1,10 +1,14 @@
 /*-------------- Constants -------------*/
 
 
-//9 pairs of symbols
+//9 pairs of symbols, 16 total used
 
 const symbols = ['✚', '✦', '✩', '✱', '✿', '☺', '☾', '♥', '◐']
 const icons = [...symbols, ...symbols]
+
+
+
+
 
 
 // const gameContainer = document.getElementById('game');
@@ -75,52 +79,24 @@ const resetBtnEl = document.querySelector('#reset');
 /*-------------- Functions -------------*/
 // init();
 
-// function newBoard(); 
-// function renderBoard();
-// function renderMessages();
-
-    
-// const render = () => {
-//     renderBoard();
-//     renderMessages();
-
-
-//shuffle icons array
-// const cardValues = []
-// const shuffledIcons = shuffle()
-
-
-
-
-
 
 /*----------- Event Listeners ----------*/
 
 const cards = document.querySelectorAll(".sqr");
 console.log(cards);
 
-//cards has grouped all sqrs with same event listener wanted
-//dom events lesson: adding event listener to multiple things
-//only console log the click working, don't complicate it
+const reset = document.querySelector("reset");
+
+//
+onclick = (cards) => {
+    console.log("card selected");
+}
+
+// cards.addEventListener('click');
+// console.log("card selected")
 
 
 
-
-
-
-// const grid = document.getElementById("grid")
-// const scoreElement = document.getElementById("score")
-// const restartButton = document.getElementById("restartButton");
-// const msgEl = document.querySelector(".msg")
-
-
-
-    // icons.forEach(icon => {
-    //   const card = document.createElement('div');
-    //   card.classList.add('card');
-    //   card.dataset.icon = icon;
-    //   card.textContent = icon;
-    //   card.addEventListener('click', handleCardClick);
-    //   gameContainer.appendChild(card);
-    // });
-
+onclick = (resetBtnEl) => {
+    console.log("reset pressed");
+}

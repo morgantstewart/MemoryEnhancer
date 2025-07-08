@@ -98,7 +98,7 @@ body {
 
 
 #startBtn,
-#restartButton {
+#resetBtnEl {
     margin-top: 20px;
     padding: 10px 20px;
     background-color: #3b09a0;
