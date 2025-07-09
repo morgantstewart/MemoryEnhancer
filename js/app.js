@@ -3,14 +3,9 @@
 
 //9 pairs of symbols, 16 total used
 
-const cards = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-let firstCardClicked 
-let secondCardClicked
+const cards = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
-// ['✚', '✦', '✩', '✱', '✿', '☺', '☾', '♥', '◐']
-// const icons = [...symbols, ...symbols]
-
-
+// These should be able to match somehow, so maybe it's like 8a and 8 b or something. or maybe it's just declaring the same number twice. Because two matches have the same numbers, you can assign the same icon to one number and it will work for both. You're trying to match a number with another number but all the numbers are different. ALSO. If you use that method, where like 8 = heart, you could maybe find a way to randomize the ordeR? Love you! You're doing great!
 
 
 const cardsEl = document.querySelectorAll(".sqr");
@@ -18,17 +13,27 @@ console.log(cardsEl);
 const reset = document.querySelector("reset");
 
 
+const getPlayerChoice = (event) => {
+  console.log('getPlayerChoice:', event);
+};
+
+
+const play = (event) => {
+  getPlayerChoice(event);
+};
+
 
 // const message("Congratulations, you're psychic!");
 // console.log("Congratulations, you're psychic!");
 
 
 /*---------- Variables (state) ---------*/
-// let board, sqr, sqrReverse, userChoice, winner
-// let board = [];
-// let sqr = [];
-// let sqrReverse -= [];
 
+let playerChoice;
+let message;
+let firstCardClicked;
+let secondCardClicked;
+let winningCombo;
 
 
 
@@ -42,6 +47,12 @@ const resetBtnEl = document.querySelector('#reset');
 console.log(resetBtnEl);
 
 
+const resultDisplayEl = document.querySelector('#result-display');
+
+
+
+
+
 /*-------------- Functions -------------*/
 //init();
 
@@ -50,10 +61,9 @@ function clicked(event) {
 }
 
 
-
 const checkForMatch = () => {
     if (firstCardClicked === secondCardClicked) {
-        console.log(event.target.innerText)//add what happens
+        console.log("it's a match!")//add what happens
     } else {
         console.log("Not a match!") 
         // add cards flipping back over
@@ -61,16 +71,25 @@ const checkForMatch = () => {
     firstCardClicked = undefined
     secondCardClicked = undefined
     tries++
-
 };
+
+// console.log(firstCardClicked + secondCardClicked);
+
+
+//store first click
+//store second click
+//compare
+//if matches, match counter that goes up one
+// goal to get 8 matches
+
 
 
 
 
 cardsEl.forEach((card) => {
     card.addEventListener("click", (event) => {
-        if (firstCardClicked === undefined) {
-        firstCardClicked = event.target.innerText;
+        if (firstCardClicked = undefined) {
+        firstCardClicked === event.target.innerText;
         console.log(firstCardClicked)
         } else {
             secondCardClicked = event.target.innerText;
@@ -80,9 +99,16 @@ cardsEl.forEach((card) => {
 })
 
 
+// connecting the two cards to an event...
 
 
-    //if fir
+
+
+
+
+
+
+
 //how to flip crds, shuffle cards, track pairs
 //how to demonstrate win?
 
@@ -106,6 +132,19 @@ cardsEl.forEach((card) => {
 
 
 
+
+
 resetBtnEl.onclick = (reset) => {
     console.log("reset pressed")
 }
+
+
+
+
+// GRAVEYARD RIP //
+
+
+
+
+// ['✚', '✦', '✩', '✱', '✿', '☺', '☾', '♥', '◐']
+// const icons = [...symbols, ...symbols]
