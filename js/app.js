@@ -1,14 +1,11 @@
 /*-------------- Constants -------------*/
-class Calculator {
-    constructor(firstCardClicked, secondCardClicked) {
-        this.firstCardClicked = firstCardClicked
-        this.secondCardClicked = secondCardClicked
-    }
-}
+// Define constants for 8 different pairs of symbols
+const cards = [0, 1, 2, 3, 4, 5, 6, 7];
+	
 
 
-const cards = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
+const totalPairs = 8; // remember currently you actually only have 7 matched pairs, some are mismatched
 const cardsEl = document.querySelectorAll(".sqr");
 console.log(cardsEl);
 const reset = document.querySelector("reset");
@@ -24,8 +21,6 @@ const play = (event) => {
 };
 
 
-
-
 // const message("Congratulations, you're psychic!");
 // console.log("Congratulations, you're psychic!");
 
@@ -34,10 +29,13 @@ const play = (event) => {
 
 let playerChoice;
 let message;
-let firstCardClicked;
-let secondCardClicked;
-let winningCombo;
 
+let firstCardClicked = [0, 1, 2, 3, 4, 5, 6, 7, 8]  //or write 'cards' here?
+
+let secondCardClicked;
+
+let winningCombo;
+let matchedPairs = 0;
 
 
 /*----- Cached Element References  -----*/
@@ -47,39 +45,15 @@ const squareEls = document.querySelectorAll('.sqr');
 const boardEls = document.querySelector('board')
 const messageEl = document.querySelector('#message');
 const resetBtnEl = document.querySelector('#reset');
-console.log(resetBtnEl);
-
-
 const resultDisplayEl = document.querySelector('#result-display');
 
 
-
-
-
 /*-------------- Functions -------------*/
-//function init();
 
+//function init();
 function clicked(event) {
     console.log("clicked")
 }
-
-
-
-
-
-
-
-const checkForMatch = () => {
-    if (firstCardClicked === secondCardClicked) {
-        console.log("it's a match!")//add what happens
-    } else {
-        console.log("Not a match!")
-        // add cards flipping back over
-    }
-    firstCardClicked = undefined
-    secondCardClicked = undefined
-    tries++
-};
 
 
 cardsEl.forEach((card) => {
@@ -94,7 +68,28 @@ cardsEl.forEach((card) => {
     })
 })
 
+const checkForMatch = () => {
+    if (firstCardClicked === secondCardClicked) {
+        console.log("match!!")
+    } else {
+        console.log("Not a match.")
+        // add cards flipping back over later
+    }
+    firstCardClicked = undefined
+    secondCardClicked = undefined
+    tries++
+};
 
+
+
+
+
+
+//testing
+
+
+
+//end testing
 
 
 
@@ -105,10 +100,15 @@ resetBtnEl.onclick = (reset) => {
     console.log("reset pressed")
 }
 
+// document.querySelectorAll('W').forEach(function (button) {
+//     button.addEventListener('click', play);
+// });
 
-document.querySelectorAll('W').forEach(function (button) {
-    button.addEventListener('click', play);
-});
+
+
+
+
+
 
 
 

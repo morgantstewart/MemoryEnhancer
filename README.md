@@ -4,7 +4,7 @@ This is my browser-based game project.
 
 
 
-// Define constants for 3 different pairs of symbols
+// Define constants for 8 different pairs of symbols
 // Define app state variables:
 	// Define variable for user’s first symbol choice
 	// Define variable for user’s second symbol choice
