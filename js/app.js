@@ -81,11 +81,19 @@ cardsEl.forEach((card) => {
                     const myElement = document.getElementById('statusMessage');
                     //minor click event to demonstrate match success here
                     myElement.textContent = 'Match paired. Continue.';
+// add something that starts an array here
+// add a click reset here
+
+
+
                     //reset click event here?
                 } else {
                     const myElement = document.getElementById('statusMessage');
-                    myElement.textContent = 'Try again.';
-                    //click reset here?
+                    removeEventListener("click", (clicked));
+                    // myElement.textContent = 'Try again.';
+                    firstCardClicked === undefined
+                    secondCardClicked === undefined
+                    //another kind of click reset here?
                 }
             } checkForMatch();
         };
@@ -93,14 +101,19 @@ cardsEl.forEach((card) => {
 });
 
 //above: updated DOM with status of matching pair.
-// below: winning trigger 
-if (checkForMatch * 7) {
-    console.log('MEMORY = ENHANCED!')
-    const myElement = document.getElementById('statusMessage');
-    myElement.textContent = 'MEMORY = ENHANCED!';
-} else {
-    console.log('Keep playing to enhance memory.')
-}
+
+
+
+// if () {
+// } {
+//     console.log('MEMORY = ENHANCED x2!')
+//     const myElement = document.getElementById('statusMessage');
+//     myElement.textContent = 'x2 match! keep going!';
+// }
+
+
+
+
 
 //How to declare a winner? -> need to wipe click count first.
 
@@ -109,28 +122,7 @@ if (checkForMatch * 7) {
 
 
 
-
-
 // working on adding pair to a winner's array below:
-
-let myArray = [winningCombo];
-let newElement = 'combo';
-
-let uniqueElements = new Set(winningCardsArray);
-uniqueElements.add(newElement);
-
-myArray = Array.from(uniqueElements); // Convert Set back to Array
-
-console.log(myArray); // Output: ["red", "green", "blue", "yellow"]
-
-let existingElement = 'green';
-uniqueElements.add(existingElement); // Adding an existing element has no effect
-myArray = Array.from(uniqueElements);
-console.log(myArray); // Output: ["red", "green", "blue", "yellow"]
-
-
-
-/// end troubleshooting code
 
 
 
