@@ -30,13 +30,13 @@ const play = (event) => {
 let playerChoice;
 let message;
 
-let firstCardClicked = [0, 1, 2, 3, 4, 5, 6, 7, 8]  //or write 'cards' here?
+let firstCardClicked = undefined;
 
-let secondCardClicked;
+let secondCardClicked = undefined;
 
 let winningCombo;
 let matchedPairs = 0;
-
+let tries = 0;
 
 /*----- Cached Element References  -----*/
 
@@ -58,38 +58,23 @@ function clicked(event) {
 
 cardsEl.forEach((card) => {
     card.addEventListener("click", (event) => {
-        if (firstCardClicked = undefined) {
-            firstCardClicked === event.target.innerText;
-            console.log(firstCardClicked)
+       console.log(firstCardClicked);
+        if (firstCardClicked === undefined) {
+            firstCardClicked = event.target.innerText;
+            console.log(event.target.innerText);
         } else {
             secondCardClicked = event.target.innerText;
-            console.log(secondCardClicked)
+            checkForMatch();
         };
     })
 })
 
-const checkForMatch = () => {
-    if (firstCardClicked === secondCardClicked) {
-        console.log("match!!")
-    } else {
-        console.log("Not a match.")
-        // add cards flipping back over later
-    }
-    firstCardClicked = undefined
-    secondCardClicked = undefined
-    tries++
-};
+
+//push matched cards into array
+// look into flip logic, if not a match, fliips over/match stays, etc with class toggling.
 
 
 
-
-
-
-//testing
-
-
-
-//end testing
 
 
 
