@@ -67,54 +67,87 @@ const checkForMatch = () => {
 
 cardsEl.forEach((card) => {
     card.addEventListener("click", (event) => {
-        console.log(firstCardClicked);
+        // console.log(firstCardClicked);
         if (firstCardClicked === undefined) {
             firstCardClicked = event.target.innerText;
-            console.log('first clicked! ' + event.target.innerText);
+            console.log('first clicked: ' + event.target.innerText);
         } else {
             secondCardClicked = event.target.innerText;
             console.log('second clicked! ' + event.target.innerText);
+            tries++
             function checkForMatch() {
                 if (firstCardClicked === secondCardClicked) {
                     console.log('paired!')
                     const myElement = document.getElementById('statusMessage');
+                    //minor click event to demonstrate match success here
                     myElement.textContent = 'Match paired. Continue.';
+                    //reset click event here?
                 } else {
-                    console.log('not a match...')
                     const myElement = document.getElementById('statusMessage');
-                    myElement.textContent = 'Not a match. Try again.';
+                    myElement.textContent = 'Try again.';
+                    //click reset here?
                 }
             } checkForMatch();
         };
     })
 });
 
+//above: updated DOM with status of matching pair.
+// below: winning trigger 
+if (checkForMatch * 7) {
+    console.log('MEMORY = ENHANCED!')
+    const myElement = document.getElementById('statusMessage');
+    myElement.textContent = 'MEMORY = ENHANCED!';
+} else {
+    console.log('Keep playing to enhance memory.')
+}
 
-//updated DOM with status of matching pairs.
-//How to declare a winner?
+//How to declare a winner? -> need to wipe click count first.
 
+
+
+
+
+
+
+
+// working on adding pair to a winner's array below:
+
+let myArray = [winningCombo];
+let newElement = 'combo';
+
+let uniqueElements = new Set(winningCardsArray);
+uniqueElements.add(newElement);
+
+myArray = Array.from(uniqueElements); // Convert Set back to Array
+
+console.log(myArray); // Output: ["red", "green", "blue", "yellow"]
+
+let existingElement = 'green';
+uniqueElements.add(existingElement); // Adding an existing element has no effect
+myArray = Array.from(uniqueElements);
+console.log(myArray); // Output: ["red", "green", "blue", "yellow"]
+
+
+
+/// end troubleshooting code
 
 
 
 
 
 // look into flip logic, if not a match, fliips over/match stays, etc with class toggling.
-
 //winningCombo.push(firstCardClicked, secondCardClicked);
-
-
 
 
 /*----------- Event Listeners ----------*/
 
 resetBtnEl.onclick = (reset) => {
     console.log("reset pressed")
+    // add an actual reset feature here, currently only displays reset text
+    const myElement = document.getElementById('statusMessage');
+    myElement.textContent = 'Game reset.';
 }
-
-// document.querySelectorAll('W').forEach(function (button) {
-//     button.addEventListener('click', play);
-// });
-
 
 
 
