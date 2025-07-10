@@ -55,6 +55,113 @@ const resultDisplayEl = document.querySelector('#result-display');
 function clicked(event) {
     console.log("clicked")
 }
+
+
+cardsEl.forEach((card) => {
+    card.addEventListener("click", (event) => {
+        // console.log(firstCardClicked);
+        if (firstCardClicked === undefined) {
+            firstCardClicked = event.target.innerText;
+            console.log('first clicked: ' + event.target.innerText);
+            //toggle here
+        } else {
+            secondCardClicked = event.target.innerText;
+            console.log('second clicked! ' + event.target.innerText);
+            // card.removeEventListener('click', eventHandler);
+            // set both back to undefined
+            //toggle here
+
+            checkForMatch();
+        }
+    })
+})
+
+
+
+
+function checkForMatch() {
+    console.log(matchedPairs);
+    if (firstCardClicked === secondCardClicked) {
+        console.log('paired!')
+        const myElement = document.getElementById('statusMessage');
+        //minor click event to demonstrate match success here
+        matchedPairs = matchedPairs + 1;
+        myElement.textContent = 'Match paired. Continue...';
+        winCheck();
+        firstCardClicked = undefined
+        secondCardClicked = undefined
+        // add reset clicks here
+    } else {
+        const myElement = document.getElementById('statusMessage');
+        // removeEventListener("click", (clicked));
+        matchedPairs = matchedPairs - 1;
+        myElement.textContent = 'Try again.';
+        firstCardClicked = undefined
+        secondCardClicked = undefined
+        //another kind of click reset here?
+    }
+};
+
+
+
+    function winCheck() {
+        if (matchedPairs === 4) {
+            console.log("WIN!");
+            const myElement = document.getElementById('statusMessage');
+            myElement.textContent = "WIN! MEMORY = ENHANCED.";
+        } else {
+        
+        }
+    } 
+
+
+    // another function for win loss conditions, if match pairs equals = 7
+    // can write it in new function but can call the function after x function is run 
+
+
+
+    //LATER:
+    // no timer needed if incorrect guesses past limit
+    //complete reset button functionality
+
+
+
+    // look into flip logic, if not a match, fliips over/match stays, etc with class toggling.
+    //winningCombo.push(firstCardClicked, secondCardClicked);
+
+
+    /*----------- Event Listeners ----------*/
+
+    resetBtnEl.onclick = (reset) => {
+        console.log("reset pressed")
+        // add an actual reset feature here, currently only displays reset text
+        const myElement = document.getElementById('statusMessage');
+        myElement.textContent = 'Game reset.';
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// GRAVEYARD RIP //
+
+// ['✚', '✦', '✩', '✱', '✿', '☺', '☾', '♥', '◐']
+// const icons = [...symbols, ...symbols]
+
+
+
+
+
+
+
 // const checkForMatch = () => {
 //     if (firstCardClicked === secondCardClicked) {
 //         matchedPairs++
@@ -103,108 +210,12 @@ function clicked(event) {
 
 
 
-cardsEl.forEach((card) => {
-    card.addEventListener("click", (event) => {
-        // console.log(firstCardClicked);
-        if (firstCardClicked === undefined) {
-            firstCardClicked = event.target.innerText;
-            console.log('first clicked: ' + event.target.innerText);
-            //toggle here
-        } else {
-            secondCardClicked = event.target.innerText;
-            console.log('second clicked! ' + event.target.innerText);
-            // card.removeEventListener('click', eventHandler);
-            // set both back to undefined
-            //toggle here
-
-            checkForMatch();
-        }
-    })
-})
-
-
-
-
-function checkForMatch() {
-    console.log(matchedPairs);
-    if (firstCardClicked === secondCardClicked) {
-        console.log('paired!')
-        const myElement = document.getElementById('statusMessage');
-        //minor click event to demonstrate match success here
-        matchedPairs = matchedPairs + 1;
-        myElement.textContent = 'Match paired. Continue...';
-        firstCardClicked = undefined
-        secondCardClicked = undefined
-
-        // add reset clicks here
-    } else {
-        const myElement = document.getElementById('statusMessage');
-        // removeEventListener("click", (clicked));
-        matchedPairs = matchedPairs - 1;
-        myElement.textContent = 'Try again.';
-        firstCardClicked = undefined
-        secondCardClicked = undefined
-        //another kind of click reset here?
-    }
-});
-
-
-
-    function winCheck() {
-        if (matchedPairs = 7) {
-            console.log("WIN!");
-            const myElement = document.getElementById('statusMessage');
-            myElement.textContent = "WIN! MEMORY = ENHANCED.";
-        } else {
-            //something here like continue checking for matches
-
-        }
-    }
-
-
-
-
-
-    // another function for win loss conditions, if match pairs equals = 7
-    // can write it in new function but can call the function after x function is run 
-
-
-
-    //LATER:
-    // no timer needed if incorrect guesses past limit
-    //complete reset button functionality
-
-
-
-    // look into flip logic, if not a match, fliips over/match stays, etc with class toggling.
-    //winningCombo.push(firstCardClicked, secondCardClicked);
-
-
-    /*----------- Event Listeners ----------*/
-
-    resetBtnEl.onclick = (reset) => {
-        console.log("reset pressed")
-        // add an actual reset feature here, currently only displays reset text
-        const myElement = document.getElementById('statusMessage');
-        myElement.textContent = 'Game reset.';
-    }
 
 
 
 
 
 
-
-
-
-
-
-
-
-// GRAVEYARD RIP //
-
-// ['✚', '✦', '✩', '✱', '✿', '☺', '☾', '♥', '◐']
-// const icons = [...symbols, ...symbols]
 
 
 // function checkMatch() {
