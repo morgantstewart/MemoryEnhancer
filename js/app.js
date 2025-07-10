@@ -1,7 +1,7 @@
 /*-------------- Constants -------------*/
 // Define constants for 8 different pairs of symbols
 const cards = [0, 1, 2, 3, 4, 5, 6, 7];
-	
+
 
 
 
@@ -29,14 +29,14 @@ const play = (event) => {
 
 let playerChoice;
 let message;
-
 let firstCardClicked = undefined;
-
+let winningCardsArray;
 let secondCardClicked = undefined;
-
-let winningCombo;
+let winningCombo = 0;
 let matchedPairs = 0;
 let tries = 0;
+
+
 
 /*----- Cached Element References  -----*/
 
@@ -54,26 +54,50 @@ const resultDisplayEl = document.querySelector('#result-display');
 function clicked(event) {
     console.log("clicked")
 }
-
+const checkForMatch = () => {
+    if (firstCardClicked === secondCardClicked) {
+        pairs++
+        console.log('match!');
+    } else {
+        console.log('not a match!')
+    }
+    firstCardClicked = undefined
+    secondCardClicked = undefined
+    tries++
+}
 
 cardsEl.forEach((card) => {
     card.addEventListener("click", (event) => {
-       console.log(firstCardClicked);
+        console.log(firstCardClicked);
         if (firstCardClicked === undefined) {
             firstCardClicked = event.target.innerText;
-            console.log(event.target.innerText);
+            console.log('first clicked! ' + event.target.innerText);
         } else {
             secondCardClicked = event.target.innerText;
-            checkForMatch();
-        };
-    })
+            console.log('second clicked! ' + event.target.innerText);
+            function checkForMatch() {
+                if (firstCardClicked === secondCardClicked) {
+                    console.log('paired!')
+                } else {
+                    console.log('not a match...')
+            }
+        } checkForMatch();
+    };
 })
+    })
+
+//if (firstCardClicked === secondCardClicked) {
+//  message('matched 1 pair!');
+//}
+
+
+
 
 
 //push matched cards into array
 // look into flip logic, if not a match, fliips over/match stays, etc with class toggling.
 
-
+//winningCombo.push(firstCardClicked, secondCardClicked);
 
 
 
