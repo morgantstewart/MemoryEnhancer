@@ -62,7 +62,6 @@ const checkForMatch = () => {
     }
     firstCardClicked = undefined
     secondCardClicked = undefined
-    tries++
 }
 
 cardsEl.forEach((card) => {
@@ -71,28 +70,30 @@ cardsEl.forEach((card) => {
         if (firstCardClicked === undefined) {
             firstCardClicked = event.target.innerText;
             console.log('first clicked: ' + event.target.innerText);
+            //toggle here
         } else {
             secondCardClicked = event.target.innerText;
             console.log('second clicked! ' + event.target.innerText);
-            tries++
+            // card.removeEventListener('click', eventHandler);
+            // set both back to undefined
+            //toggle here
+
             function checkForMatch() {
                 if (firstCardClicked === secondCardClicked) {
                     console.log('paired!')
                     const myElement = document.getElementById('statusMessage');
                     //minor click event to demonstrate match success here
+                    matchedPairs = matchedPairs + 1;
                     myElement.textContent = 'Match paired. Continue.';
-// add something that starts an array here
-// add a click reset here
-
-
-
-                    //reset click event here?
+                    firstCardClicked = undefined
+                    secondCardClicked = undefined
+// add reset clicks here
                 } else {
                     const myElement = document.getElementById('statusMessage');
-                    removeEventListener("click", (clicked));
-                    // myElement.textContent = 'Try again.';
-                    firstCardClicked === undefined
-                    secondCardClicked === undefined
+                    // removeEventListener("click", (clicked));
+                    myElement.textContent = 'Try again.';
+                    firstCardClicked = undefined
+                    secondCardClicked = undefined
                     //another kind of click reset here?
                 }
             } checkForMatch();
@@ -100,30 +101,18 @@ cardsEl.forEach((card) => {
     })
 });
 
-//above: updated DOM with status of matching pair.
-
-
-
-// if () {
-// } {
-//     console.log('MEMORY = ENHANCED x2!')
-//     const myElement = document.getElementById('statusMessage');
-//     myElement.textContent = 'x2 match! keep going!';
-// }
 
 
 
 
 
-//How to declare a winner? -> need to wipe click count first.
+// another function for win loss conditions, if match pairs equals = 7
+// can write it in new function but can call the function after x function is run 
 
 
 
-
-
-
-// working on adding pair to a winner's array below:
-
+//LATER:
+// no timer needed if incorrect guesses past limit
 
 
 
