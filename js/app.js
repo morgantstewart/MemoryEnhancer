@@ -109,6 +109,7 @@ function winCheck() {
         console.log("WIN!");
         const myElement = document.getElementById('statusMessage');
         myElement.textContent = "WIN! MEMORY = ENHANCED.";
+        triggerConfetti();
     } else {
 
     }
@@ -141,6 +142,45 @@ resetBtnEl.onclick = (reset) => {
 }
 
 
+
+
+//confetti code
+
+function createConfettiPiece() {
+  const container = document.getElementById('confetti-container');
+  const piece = document.createElement('div');
+  piece.classList.add('confetti-piece');
+
+  // Randomize properties
+  const size = Math.random() * 5 + 5; // Size between 5px and 15px
+  const x = Math.random() * window.innerWidth;
+  const color = `hsl(${Math.random() * 360}, 70%, 60%)`; // Random HSL color
+  const duration = Math.random() * 3 + 2; // Duration between 2s and 5s
+
+  piece.style.width = `${size}px`;
+  piece.style.height = `${size}px`;
+  piece.style.left = `${x}px`;
+  piece.style.setProperty('--confetti-color', color);
+  piece.style.animationDuration = `${duration}s`;
+
+  container.appendChild(piece);
+
+  // Remove piece after animation completes
+  piece.addEventListener('animationend', () => {
+    piece.remove();
+  });
+}
+
+// Trigger confetti (e.g., on button click or page load)
+function triggerConfetti(count = 50) {
+  for (let i = 0; i < count; i++) {
+    setTimeout(createConfettiPiece, i * 50); // Stagger creation
+  }
+}
+
+// Example usage:
+// triggerConfetti(); // To immediately start
+// document.getElementById('myButton').addEventListener('click', () => triggerConfetti());
 
 
 

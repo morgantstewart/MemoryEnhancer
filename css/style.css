@@ -116,3 +116,38 @@ body {
 .gameTimer {
     display: none;
 }
+
+/* confetti stuff*/
+
+#confetti-container {
+  position: fixed; /* Or absolute, depending on placement */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allows interaction with elements beneath the confetti */
+  overflow: hidden; /* Prevents confetti from extending beyond the container */
+  z-index: 9999; /* Ensures confetti appears on top */
+}
+
+.confetti-piece {
+  position: absolute;
+  background-color: var(--confetti-color); /* Dynamically set color */
+  border-radius: 0%; /* For circular confetti */
+  opacity: 0.5; /* Starts hidden */
+  animation: fall-and-fade linear forwards; /* Animation defined below */
+}
+
+@keyframes fall-and-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(720deg); /* Falls off screen and rotates */
+  }
+}
