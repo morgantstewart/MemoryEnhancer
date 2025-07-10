@@ -94,7 +94,7 @@ function checkForMatch() {
     } else {
         const myElement = document.getElementById('statusMessage');
         // removeEventListener("click", (clicked));
-        matchedPairs = matchedPairs - 1;
+        matchedPairs = matchedPairs + 1;
         myElement.textContent = 'Try again.';
         firstCardClicked = undefined
         secondCardClicked = undefined
@@ -104,40 +104,41 @@ function checkForMatch() {
 
 
 
-    function winCheck() {
-        if (matchedPairs === 4) {
-            console.log("WIN!");
-            const myElement = document.getElementById('statusMessage');
-            myElement.textContent = "WIN! MEMORY = ENHANCED.";
-        } else {
-        
-        }
-    } 
-
-
-    // another function for win loss conditions, if match pairs equals = 7
-    // can write it in new function but can call the function after x function is run 
-
-
-
-    //LATER:
-    // no timer needed if incorrect guesses past limit
-    //complete reset button functionality
-
-
-
-    // look into flip logic, if not a match, fliips over/match stays, etc with class toggling.
-    //winningCombo.push(firstCardClicked, secondCardClicked);
-
-
-    /*----------- Event Listeners ----------*/
-
-    resetBtnEl.onclick = (reset) => {
-        console.log("reset pressed")
-        // add an actual reset feature here, currently only displays reset text
+function winCheck() {
+    if (matchedPairs === 5) {
+        console.log("WIN!");
         const myElement = document.getElementById('statusMessage');
-        myElement.textContent = 'Game reset.';
+        myElement.textContent = "WIN! MEMORY = ENHANCED.";
+    } else {
+
     }
+}
+
+
+// another function for win loss conditions, if match pairs equals = 7
+// can write it in new function but can call the function after x function is run 
+
+
+
+//LATER:
+// no timer needed if incorrect guesses past limit
+//complete reset button functionality
+
+
+
+// look into flip logic, if not a match, fliips over/match stays, etc with class toggling.
+//winningCombo.push(firstCardClicked, secondCardClicked);
+
+
+/*----------- Event Listeners ----------*/
+
+resetBtnEl.onclick = (reset) => {
+    console.log("reset pressed")
+    // add an actual reset feature here, currently only displays reset text
+    window.location.reload();
+    const myElement = document.getElementById('statusMessage');
+    myElement.textContent = 'Game reset.';
+}
 
 
 
