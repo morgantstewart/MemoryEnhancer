@@ -3,9 +3,8 @@
 const cards = [0, 1, 2, 3, 4, 5, 6, 7];
 
 
-
-
-const totalPairs = 8; // remember currently you actually only have 7 matched pairs, some are mismatched
+const totalPairs = 8;
+// remember: currently you actually only have 7 matched pairs, some are mismatched
 const cardsEl = document.querySelectorAll(".sqr");
 console.log(cardsEl);
 const reset = document.querySelector("reset");
@@ -78,27 +77,30 @@ cardsEl.forEach((card) => {
             function checkForMatch() {
                 if (firstCardClicked === secondCardClicked) {
                     console.log('paired!')
+                    const myElement = document.getElementById('statusMessage');
+                    myElement.textContent = 'Match paired. Continue.';
                 } else {
                     console.log('not a match...')
-            }
-        } checkForMatch();
-    };
-})
+                    const myElement = document.getElementById('statusMessage');
+                    myElement.textContent = 'Not a match. Try again.';
+                }
+            } checkForMatch();
+        };
     })
-
-//if (firstCardClicked === secondCardClicked) {
-//  message('matched 1 pair!');
-//}
+});
 
 
+//updated DOM with status of matching pairs.
+//How to declare a winner?
 
 
 
-//push matched cards into array
+
+
+
 // look into flip logic, if not a match, fliips over/match stays, etc with class toggling.
 
 //winningCombo.push(firstCardClicked, secondCardClicked);
-
 
 
 
