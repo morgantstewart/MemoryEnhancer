@@ -2,8 +2,8 @@
 // Define constants for 8 different pairs of symbols
 const cards = [0, 1, 2, 3, 4, 5, 6, 7];
 const cardMatches = {};
+const myElement = document.getElementById('sqr');
 cardMatches.matches = [];
-
 const totalPairs = 8;
 // remember: currently you actually only have 7 matched pairs, some are mismatched
 const cardsEl = document.querySelectorAll(".sqr");
@@ -21,9 +21,20 @@ const play = (event) => {
 };
 
 
+const card = document.querySelector(".sqr");
 
-// const message("Congratulations, you're psychic!");
-// console.log("Congratulations, you're psychic!");
+card.addEventListener("click", function () {
+    card.classList.toggle("card-front");
+});
+
+
+
+card.classList.toggle("card-back");
+
+
+
+
+
 
 
 /*---------- Variables (state) ---------*/
@@ -53,28 +64,22 @@ const resultDisplayEl = document.querySelector('#result-display');
 
 //function init();
 function clicked(event) {
-    console.log("clicked")
+    console.log("clicked");
 }
 
-
 cardsEl.forEach((card) => {
-    card.addEventListener("click", (event) => {
-        // console.log(firstCardClicked);
+    card.addEventListener("click", function (event) {
         if (firstCardClicked === undefined) {
             firstCardClicked = event.target.innerText;
             console.log('first clicked: ' + event.target.innerText);
-            //toggle here
         } else {
             secondCardClicked = event.target.innerText;
             console.log('second clicked! ' + event.target.innerText);
-            // card.removeEventListener('click', eventHandler);
-            // set both back to undefined
-            //toggle here
-
             checkForMatch();
         }
-    })
-})
+    });
+});
+
 
 
 
@@ -87,6 +92,7 @@ function checkForMatch() {
         //minor click event to demonstrate match success here
         matchedPairs = matchedPairs + 1;
         myElement.textContent = 'Match paired. Continue...';
+        // inTheClick();
         winCheck();
         firstCardClicked = undefined
         secondCardClicked = undefined
@@ -102,7 +108,15 @@ function checkForMatch() {
     }
 };
 
-
+// function inTheClick() {
+//     setTimeout(() => {
+//       cardsEl.classList.add('flipped');
+//     }, 1000);
+//  setTimeout(() => {
+//       cardsEl.classList.remove('flipped');
+//     }, 3000);
+//     console.log(squareEls.child);
+// }
 
 function winCheck() {
     if (matchedPairs === 5) {
@@ -114,6 +128,13 @@ function winCheck() {
 
     }
 }
+
+
+// function cardBackFaceUp(cardsEl) {
+//     cardsEl.classList.add
+//     ToggleEvent(" ")
+//     console.log(cardBacksElement);
+// }
 
 
 // another function for win loss conditions, if match pairs equals = 7
@@ -139,7 +160,7 @@ resetBtnEl.onclick = (reset) => {
     window.location.reload();
     const myElement = document.getElementById('statusMessage');
     myElement.textContent = 'Game reset.';
-}
+};
 
 
 
@@ -147,44 +168,36 @@ resetBtnEl.onclick = (reset) => {
 //confetti code
 
 function createConfettiPiece() {
-  const container = document.getElementById('confetti-container');
-  const piece = document.createElement('div');
-  piece.classList.add('confetti-piece');
+    const container = document.getElementById('confetti-container');
+    const piece = document.createElement('div');
+    piece.classList.add('confetti-piece');
 
-  // Randomize properties
-  const size = Math.random() * 5 + 5; // Size between 5px and 15px
-  const x = Math.random() * window.innerWidth;
-  const color = `hsl(${Math.random() * 360}, 70%, 60%)`; // Random HSL color
-  const duration = Math.random() * 3 + 2; // Duration between 2s and 5s
+    // Randomize properties
+    const size = Math.random() * 5 + 5; // Size between 5px and 15px
+    const x = Math.random() * window.innerWidth;
+    const color = `hsl(${Math.random() * 360}, 70%, 60%)`; // Random HSL color
+    const duration = Math.random() * 3 + 2; // Duration between 2s and 5s
 
-  piece.style.width = `${size}px`;
-  piece.style.height = `${size}px`;
-  piece.style.left = `${x}px`;
-  piece.style.setProperty('--confetti-color', color);
-  piece.style.animationDuration = `${duration}s`;
+    piece.style.width = `${size}px`;
+    piece.style.height = `${size}px`;
+    piece.style.left = `${x}px`;
+    piece.style.setProperty('--confetti-color', color);
+    piece.style.animationDuration = `${duration}s`;
 
-  container.appendChild(piece);
+    container.appendChild(piece);
 
-  // Remove piece after animation completes
-  piece.addEventListener('animationend', () => {
-    piece.remove();
-  });
+    // Remove piece after animation completes
+    piece.addEventListener('animationend', () => {
+        piece.remove();
+    });
 }
 
 // Trigger confetti (e.g., on button click or page load)
 function triggerConfetti(count = 50) {
-  for (let i = 0; i < count; i++) {
-    setTimeout(createConfettiPiece, i * 50); // Stagger creation
-  }
-}
-
-// Example usage:
-// triggerConfetti(); // To immediately start
-// document.getElementById('myButton').addEventListener('click', () => triggerConfetti());
-
-
-
-
+    for (let i = 0; i < count; i++) {
+        setTimeout(createConfettiPiece, i * 50); // Stagger creation
+    };
+};
 
 
 
@@ -197,77 +210,4 @@ function triggerConfetti(count = 50) {
 // ['✚', '✦', '✩', '✱', '✿', '☺', '☾', '♥', '◐']
 // const icons = [...symbols, ...symbols]
 
-
-
-
-
-
-
-// const checkForMatch = () => {
-//     if (firstCardClicked === secondCardClicked) {
-//         matchedPairs++
-//         console.log('match!');
-//     } else {
-//         console.log('not a match!')
-//     }
-//     firstCardClicked = undefined
-//     secondCardClicked = undefined
-// }
-//using foreach to run specific function on all of the cards
-//single line if statement
-
-// cardsEl.forEach((card) => {
-//     card.addEventListener("click", handleCards)
-// })
-// function handleCards(event) {
-//     if (!event.target.classList.contains('sqr')) return;
-//     if (cardMatches.matches.includes(event.target.id)){
-//     } else {
-//         // myElement.textContent = 'Try again.';
-
-//     }
-// //tests if it's alrdy part of a match
-
-//     console.log(event.target.id, event.target.textContent);
-//     if (cardMatches.firstSelection) {
-//         if (cardMatches.firstSelection === event.target.id) {
-//             //create maybe a function here, call it, fill it with rendering stuff
-//             cardMatches.matches.push(event.target.id) //logging all of ids into array
-//             cardMatches.matches.push(cardMatches.firstSelection)
-//             cardMatches.firstSelection = ""    //falsy statement. will eval to false.
-//         }
-//         cardMatches.secondSelection = event.target.id
-//     } else {
-//         cardMatches.firstSelection = event.target.id
-
-//     }
-
-// };
-// console.log(cardMatches);
-// cardMatches.push(element)
-
-//correctly attached event listner and able to log things^^ 
-//if first selection exists, then it will not override it ^^^
-
-
-
-
-
-
-
-
-
-
-
-// function checkMatch() {
-// variable 1st Option
-// variable 2nd Option
-// if firstOption.length === 0, then firstOption = .sqrEls
-// else if second option === 0, then secondOption = .sqrEls
-// then execute checkmatch function inside here 
-// };
-
-
-//how to flip crds, shuffle cards, track pairs
-//how to demonstrate win?
 

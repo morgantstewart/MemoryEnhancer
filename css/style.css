@@ -33,7 +33,9 @@ body {
     gap: 20px;
     text-align: center;
     background-color: rgb(0, 0, 0);
-    stroke: #fff;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: rotate 500ms linear;
 }
 
 
@@ -169,4 +171,34 @@ body {
         transform: translateY(100vh) rotate(720deg);
         /* Falls off screen and rotates */
     }
+}
+
+/* flip card functionality */
+
+
+
+
+
+.sqr.show {
+  rotate: y 180deg;
+}
+
+.sqr-front,
+.sqr-back {
+  border: 5px solid #000000;
+  padding: 0.5em;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  backface-visibility: hidden;
+}
+
+.sqr-front {
+  background-color: pink;
+}
+
+.sqr-back {
+  background-color: aliceblue;
+  rotate: y 180deg;
 }
