@@ -108,7 +108,7 @@ function winCheck() {
     if (matchedPairs === 5) {
         console.log("WIN!");
         const myElement = document.getElementById('statusMessage');
-        myElement.textContent = "WIN! MEMORY = ENHANCED.";
+        myElement.textContent = "WIN! MEMORY ENHANCED.";
         triggerConfetti();
     } else {
 
