@@ -23,6 +23,15 @@ body {
     text-align: center;
 }
 
+#timer {
+    color: red;
+    font-size: 40px;
+}
+
+
+
+
+
 
 .sqr {
     border: #000000 4px solid;

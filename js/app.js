@@ -129,8 +129,9 @@ function winCheck() {
         console.log("WIN!");
         const myElement = document.getElementById('statusMessage');
         myElement.textContent = "WIN! MEMORY ENHANCED.";
-        triggerConfetti();
         stopTimer()
+        triggerConfetti();
+        
     } else {
 
     }
@@ -141,11 +142,11 @@ function winCheck() {
 
 function startTimer() {
     timerInterval = setInterval(() => {
-        seconds++;
+        seconds--;
         const minutes = Math.floor(seconds / 60);
         const remainingSeconds = seconds % 60;
         timerDisplay.textContent = 
-            `${minutes < 10 ? '0' : ''}${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+            `${minutes < 0 ? '0' : ''}${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
     }, 1000);
 }
 
@@ -181,6 +182,7 @@ resetBtnEl.onclick = (reset) => {
     // add an actual reset feature here, currently only displays reset text
     window.location.reload();
     const myElement = document.getElementById('statusMessage');
+    stopTimer()
     myElement.textContent = 'Game reset.';
 };
 
