@@ -108,6 +108,7 @@ function checkForMatch() {
         // removeEventListener("click", (clicked));
         matchedPairs = matchedPairs + 1;
         myElement.textContent = 'Try again.';
+        stopTimer()
         firstCardClicked = undefined
         secondCardClicked = undefined
         //another kind of click reset here?
@@ -144,9 +145,13 @@ function startTimer() {
     timerInterval = setInterval(() => {
         seconds--;
         const minutes = Math.floor(seconds / 60);
-        const remainingSeconds = seconds % 60;
+        const remainingSeconds = seconds % 30;
         timerDisplay.textContent = 
+<<<<<<< HEAD
             `${minutes < 0 ? '0' : ''}${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+=======
+            `${minutes < 0 ? '1' : ''}${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+>>>>>>> 7fc2abe00c49f906561180b6c25dd96e6cb1d7dd
     }, 1000);
 }
 
