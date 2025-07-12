@@ -33,7 +33,11 @@ card.classList.toggle("card-back");
 
 
 
+const timerDisplay = document.getElementById('timer');
 
+
+// Call startTimer() when the game begins
+// Call stopTimer() when the game ends
 
 
 
@@ -47,7 +51,8 @@ let secondCardClicked = undefined;
 let winningCombo = 0;
 let matchedPairs = 0;
 let tries = 0;
-
+let seconds = 60;
+let timerInterval;
 
 
 /*----- Cached Element References  -----*/
@@ -72,6 +77,7 @@ cardsEl.forEach((card) => {
         if (firstCardClicked === undefined) {
             firstCardClicked = event.target.innerText;
             console.log('first clicked: ' + event.target.innerText);
+            startTimer();
         } else {
             secondCardClicked = event.target.innerText;
             console.log('second clicked! ' + event.target.innerText);
@@ -124,9 +130,27 @@ function winCheck() {
         const myElement = document.getElementById('statusMessage');
         myElement.textContent = "WIN! MEMORY ENHANCED.";
         triggerConfetti();
+        stopTimer()
     } else {
 
     }
+}
+
+
+
+
+function startTimer() {
+    timerInterval = setInterval(() => {
+        seconds++;
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        timerDisplay.textContent = 
+            `${minutes < 10 ? '0' : ''}${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
 }
 
 
@@ -137,8 +161,6 @@ function winCheck() {
 // }
 
 
-// another function for win loss conditions, if match pairs equals = 7
-// can write it in new function but can call the function after x function is run 
 
 
 
