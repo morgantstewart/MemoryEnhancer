@@ -7,7 +7,7 @@
 
 
 ## Getting Started
-Enhance your memory skills by clicking on matching symbol pairs. Make 5 matching pairs to complete the game and trigger the confetti before the timer runs out! 
+Enhance your memory skills by clicking on matching symbol pairs. Make 5 matching pairs to complete the game before the timer runs out! 
 
 Do not get a pair wrong, or you lose the game!
 

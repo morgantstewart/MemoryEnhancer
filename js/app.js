@@ -133,36 +133,36 @@ function handleClick() {
     window.location.reload();
 }
 
-function createConfettiPiece() {
-    const container = document.getElementById('confetti-container');
-    const piece = document.createElement('div');
-    piece.classList.add('confetti-piece');
+// function createConfettiPiece() {
+//     const container = document.getElementById('confetti-container');
+//     const piece = document.createElement('div');
+//     piece.classList.add('confetti-piece');
 
-    /*----------- Event Listeners ----------*/
+//     /*----------- Event Listeners ----------*/
 
-    resetBtnEl.onclick = (reset) => {
-        console.log("reset pressed")
-        window.location.reload();
-        const myElement = document.getElementById('statusMessage');
-        stopTimer();
-        myElement.textContent = 'Game reset.';
-    };
+//     resetBtnEl.onclick = (reset) => {
+//         console.log("reset pressed")
+//         window.location.reload();
+//         const myElement = document.getElementById('statusMessage');
+//         stopTimer();
+//         myElement.textContent = 'Game reset.';
+//     };
 
-    piece.style.width = `${size}px`;
-    piece.style.height = `${size}px`;
-    piece.style.left = `${x}px`;
-    piece.style.setProperty('--confetti-color', color);
-    piece.style.animationDuration = `${duration}s`;
+//     piece.style.width = `${size}px`;
+//     piece.style.height = `${size}px`;
+//     piece.style.left = `${x}px`;
+//     piece.style.setProperty('--confetti-color', color);
+//     piece.style.animationDuration = `${duration}s`;
 
-    container.appendChild(piece);
+//     container.appendChild(piece);
 
-    piece.addEventListener('animationend', () => {
-        piece.remove();
-    });
-}
+//     piece.addEventListener('animationend', () => {
+//         piece.remove();
+//     });
+// }
 
-function triggerConfetti(count = 50) {
-    for (let i = 0; i < count; i++) {
-        setTimeout(createConfettiPiece, i * 50);
-    };
-};
+// function triggerConfetti(count = 50) {
+//     for (let i = 0; i < count; i++) {
+//         setTimeout(createConfettiPiece, i * 50);
+//     };
+// };
