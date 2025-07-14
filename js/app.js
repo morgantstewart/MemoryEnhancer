@@ -117,10 +117,11 @@ function checkForMatch() {
 
 function winCheck() {
     if (matchedPairs === 5) {
+        stopTimer();
         console.log("WIN!");
         const myElement = document.getElementById('statusMessage');
         myElement.textContent = "WIN! MEMORY ENHANCED.";
-        stopTimer();
+
         triggerConfetti();
     } else if (matchedPairs === 0){
         stopTimer();
@@ -147,16 +148,7 @@ function handleClick() {
   window.location.reload();
 }
 
-
-
-
-
-
-
-
-
-
-
+stopTimer();
 
 
 function createConfettiPiece() {
