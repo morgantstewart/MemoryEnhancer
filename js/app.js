@@ -6,35 +6,22 @@ cardMatches.matches = [];
 const cardsEl = document.querySelectorAll(".sqr");
 console.log(cardsEl);
 const reset = document.querySelector("reset");
-
-
 const timerDisplay = document.getElementById('timer');
-
 const size = Math.random() * 5 + 5;
 const x = Math.random() * window.innerWidth;
 const color = `hsl(${Math.random() * 360}, 70%, 60%)`; // Random HSL color
 const duration = Math.random() * 3 + 2;
-
 const getPlayerChoice = (event) => {
     console.log('getPlayerChoice:', event);
 };
-
-
 const play = (event) => {
     getPlayerChoice(event);
 };
-
-
 const card = document.querySelector(".sqr");
-
 card.addEventListener("click", function () {
     card.classList.toggle("card-front");
 });
-
-
 card.classList.toggle("card-back");
-
-
 
 /*---------- Variables (state) ---------*/
 
@@ -48,7 +35,6 @@ let matchedPairs = 0;
 let tries = 0;
 let seconds = 60;
 let timerInterval;
-
 
 /*----- Cached Element References  -----*/
 
@@ -64,11 +50,9 @@ const startBtnEl = document.querySelector('#start');
 
 /*-------------- Functions -------------*/
 
-//function init();
 function clicked(event) {
     console.log("clicked");
 }
-
 
 function stopTimer() {
     clearInterval(timerInterval);
@@ -80,8 +64,6 @@ function startGame() {
 };
 
 startGame();
-
-
 
 cardsEl.forEach((card) => {
     card.addEventListener("click", function (event) {
@@ -96,7 +78,6 @@ cardsEl.forEach((card) => {
         }
     });
 });
-
 
 function checkForMatch() {
     console.log(matchedPairs);
@@ -119,7 +100,6 @@ function checkForMatch() {
     }
 };
 
-
 function winCheck() {
     if (matchedPairs === 5) {
         stopTimer();
@@ -134,7 +114,6 @@ function winCheck() {
         stopTimer();
     }
 };
-
 
 function startTimer() {
     timerInterval = setInterval(() => {
@@ -154,9 +133,6 @@ function handleClick() {
     window.location.reload();
 }
 
-// stopTimer();
-
-
 function createConfettiPiece() {
     const container = document.getElementById('confetti-container');
     const piece = document.createElement('div');
@@ -171,14 +147,6 @@ function createConfettiPiece() {
         stopTimer();
         myElement.textContent = 'Game reset.';
     };
-
-
-
-
-    const size = Math.random() * 5 + 5;
-    const x = Math.random() * window.innerWidth;
-    const color = `hsl(${Math.random() * 360}, 70%, 60%)`;
-    const duration = Math.random() * 3 + 2;
 
     piece.style.width = `${size}px`;
     piece.style.height = `${size}px`;
