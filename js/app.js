@@ -234,5 +234,3 @@ function triggerConfetti(count = 50) {
 
 // ['✚', '✦', '✩', '✱', '✿', '☺', '☾', '♥', '◐']
 // const icons = [...symbols, ...symbols]
-
-

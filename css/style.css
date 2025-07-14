@@ -53,7 +53,6 @@ stroke-width: 10px;
 }
 
 
-
 .sqr {
     border: #000000 4px solid;
     width: 20%;
@@ -201,34 +200,4 @@ stroke-width: 10px;
         transform: translateY(100vh) rotate(720deg);
         /* Falls off screen and rotates */
     }
-}
-
-/* flip card functionality */
-
-
-
-
-
-.sqr.show {
-  rotate: y 180deg;
-}
-
-.sqr-front,
-.sqr-back {
-  border: 5px solid #000000;
-  padding: 0.5em;
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-content: center;
-  backface-visibility: hidden;
-}
-
-.sqr-front {
-  background-color: pink;
-}
-
-.sqr-back {
-  background-color: aliceblue;
-  rotate: y 180deg;
 }
