@@ -59,6 +59,7 @@ const messageEl = document.querySelector('#message');
 const resetBtnEl = document.querySelector('#reset');
 const resultDisplayEl = document.querySelector('#result-display');
 resetBtnEl.addEventListener("click", handleClick);
+const startBtnEl = document.querySelector('#start');
 
 
 /*-------------- Functions -------------*/
@@ -68,12 +69,26 @@ function clicked(event) {
     console.log("clicked");
 }
 
+
+
+
+function startGame() {
+    startTimer;
+    resetBtnEl.addEventListener("click", handleClick);
+};
+
+startGame();
+startTimer();
+
+
+
+
 cardsEl.forEach((card) => {
     card.addEventListener("click", function (event) {
         if (firstCardClicked === undefined) {
             firstCardClicked = event.target.innerText;
             console.log('first clicked: ' + event.target.innerText);
-            startTimer();
+           
         } else {
             secondCardClicked = event.target.innerText;
             console.log('second clicked! ' + event.target.innerText);
@@ -88,21 +103,19 @@ function checkForMatch() {
     if (firstCardClicked === secondCardClicked) {
         console.log('paired!')
         const myElement = document.getElementById('statusMessage');
-        //minor click event to demonstrate match success here
         matchedPairs = matchedPairs + 1;
         myElement.textContent = 'Match paired. Continue...';
-        // inTheClick();
         winCheck();
         firstCardClicked = undefined
         secondCardClicked = undefined
 
     } else {
         const myElement = document.getElementById('statusMessage');
-        // removeEventListener("click", (clicked));
         matchedPairs = matchedPairs + 1;
         myElement.textContent = 'Try Sorry, you lost.';
         firstCardClicked = undefined
         secondCardClicked = undefined
+        
     }
 };
 
@@ -140,7 +153,7 @@ function handleClick() {
   window.location.reload();
 }
 
-stopTimer();
+// stopTimer();
 
 
 function createConfettiPiece() {

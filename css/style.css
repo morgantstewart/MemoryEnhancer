@@ -140,7 +140,11 @@ stroke-width: 10px;
 }
 
 
-#startBtn,
+#startBtn {
+}
+
+
+
 #resetBtnEl {
     margin-top: 20px;
     padding: 10px 20px;
