@@ -4,7 +4,6 @@ const cardMatches = {};
 const myElement = document.getElementById('sqr');
 cardMatches.matches = [];
 const cardsEl = document.querySelectorAll(".sqr");
-console.log(cardsEl);
 const reset = document.querySelector("reset");
 const timerDisplay = document.getElementById('timer');
 const size = Math.random() * 5 + 5;
@@ -12,7 +11,6 @@ const x = Math.random() * window.innerWidth;
 const color = `hsl(${Math.random() * 360}, 70%, 60%)`; // Random HSL color
 const duration = Math.random() * 3 + 2;
 const getPlayerChoice = (event) => {
-    console.log('getPlayerChoice:', event);
 };
 const play = (event) => {
     getPlayerChoice(event);
@@ -51,7 +49,7 @@ const startBtnEl = document.querySelector('#start');
 /*-------------- Functions -------------*/
 
 function clicked(event) {
-    console.log("clicked");
+
 }
 
 function stopTimer() {
@@ -69,20 +67,16 @@ cardsEl.forEach((card) => {
     card.addEventListener("click", function (event) {
         if (firstCardClicked === undefined) {
             firstCardClicked = event.target.innerText;
-            console.log('first clicked: ' + event.target.innerText);
             startTimer();
         } else {
             secondCardClicked = event.target.innerText;
-            console.log('second clicked! ' + event.target.innerText);
             checkForMatch();
         }
     });
 });
 
 function checkForMatch() {
-    console.log(matchedPairs);
     if (firstCardClicked === secondCardClicked) {
-        console.log('paired!')
         const myElement = document.getElementById('statusMessage');
         matchedPairs = matchedPairs + 1;
         myElement.textContent = 'Match paired. Continue...';
@@ -103,11 +97,9 @@ function checkForMatch() {
 function winCheck() {
     if (matchedPairs === 5) {
         stopTimer();
-        console.log("WIN!");
         const myElement = document.getElementById('statusMessage');
         myElement.textContent = "WIN! MEMORY ENHANCED.";
-
-        triggerConfetti();
+        stopTimer();
     } else if (matchedPairs === 0) {
         const myElement = document.getElementById('statusMessage');
         myElement.textContent = "Sorry, you lost.";
@@ -127,42 +119,9 @@ function startTimer() {
 
 function stopTimer() {
     clearInterval(timerInterval);
+    clearTimeout(timerInterval);
 }
 
 function handleClick() {
     window.location.reload();
 }
-
-// function createConfettiPiece() {
-//     const container = document.getElementById('confetti-container');
-//     const piece = document.createElement('div');
-//     piece.classList.add('confetti-piece');
-
-//     /*----------- Event Listeners ----------*/
-
-//     resetBtnEl.onclick = (reset) => {
-//         console.log("reset pressed")
-//         window.location.reload();
-//         const myElement = document.getElementById('statusMessage');
-//         stopTimer();
-//         myElement.textContent = 'Game reset.';
-//     };
-
-//     piece.style.width = `${size}px`;
-//     piece.style.height = `${size}px`;
-//     piece.style.left = `${x}px`;
-//     piece.style.setProperty('--confetti-color', color);
-//     piece.style.animationDuration = `${duration}s`;
-
-//     container.appendChild(piece);
-
-//     piece.addEventListener('animationend', () => {
-//         piece.remove();
-//     });
-// }
-
-// function triggerConfetti(count = 50) {
-//     for (let i = 0; i < count; i++) {
-//         setTimeout(createConfettiPiece, i * 50);
-//     };
-// };

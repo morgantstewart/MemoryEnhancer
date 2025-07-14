@@ -156,7 +156,7 @@ stroke-width: 10px;
 .gameTimer {
     display: none;
 }
-
+/* 
 #confetti-container {
     position: fixed;
     top: 0;
@@ -191,4 +191,4 @@ stroke-width: 10px;
         opacity: 0;
         transform: translateY(100vh) rotate(720deg);
     }
-}
+} */
