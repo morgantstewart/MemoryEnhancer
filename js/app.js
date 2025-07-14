@@ -10,10 +10,10 @@ const reset = document.querySelector("reset");
 
 const timerDisplay = document.getElementById('timer');
 
-const size = Math.random() * 5 + 5; 
+const size = Math.random() * 5 + 5;
 const x = Math.random() * window.innerWidth;
 const color = `hsl(${Math.random() * 360}, 70%, 60%)`; // Random HSL color
-const duration = Math.random() * 3 + 2; 
+const duration = Math.random() * 3 + 2;
 
 const getPlayerChoice = (event) => {
     console.log('getPlayerChoice:', event);
@@ -70,7 +70,9 @@ function clicked(event) {
 }
 
 
-
+function stopTimer() {
+    clearInterval(timerInterval);
+}
 
 function startGame() {
     startTimer;
@@ -78,8 +80,6 @@ function startGame() {
 };
 
 startGame();
-startTimer();
-
 
 
 
@@ -88,7 +88,7 @@ cardsEl.forEach((card) => {
         if (firstCardClicked === undefined) {
             firstCardClicked = event.target.innerText;
             console.log('first clicked: ' + event.target.innerText);
-           
+            startTimer();
         } else {
             secondCardClicked = event.target.innerText;
             console.log('second clicked! ' + event.target.innerText);
@@ -115,7 +115,7 @@ function checkForMatch() {
         myElement.textContent = 'Try Sorry, you lost.';
         firstCardClicked = undefined
         secondCardClicked = undefined
-        
+        stopTimer();
     }
 };
 
@@ -128,11 +128,12 @@ function winCheck() {
         myElement.textContent = "WIN! MEMORY ENHANCED.";
 
         triggerConfetti();
-    } else if (matchedPairs === 0){
-        stopTimer();
+    } else if (matchedPairs === 0) {
         const myElement = document.getElementById('statusMessage');
         myElement.textContent = "Sorry, you lost.";
-}};
+        stopTimer();
+    }
+};
 
 
 function startTimer() {
@@ -150,7 +151,7 @@ function stopTimer() {
 }
 
 function handleClick() {
-  window.location.reload();
+    window.location.reload();
 }
 
 // stopTimer();
@@ -174,9 +175,9 @@ function createConfettiPiece() {
 
 
 
-    const size = Math.random() * 5 + 5; 
+    const size = Math.random() * 5 + 5;
     const x = Math.random() * window.innerWidth;
-    const color = `hsl(${Math.random() * 360}, 70%, 60%)`; 
+    const color = `hsl(${Math.random() * 360}, 70%, 60%)`;
     const duration = Math.random() * 3 + 2;
 
     piece.style.width = `${size}px`;
