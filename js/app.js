@@ -87,7 +87,7 @@ function checkForMatch() {
     } else {
         const myElement = document.getElementById('statusMessage');
         matchedPairs = matchedPairs + 1;
-        myElement.textContent = 'Try Sorry, you lost.';
+        myElement.textContent = 'Sorry, you lost.';
         firstCardClicked = undefined
         secondCardClicked = undefined
         stopTimer();
