@@ -1,5 +1,4 @@
 /*-------------- Constants -------------*/
-// Define constants for 8 different pairs of symbols
 const cards = [0, 1, 2, 3, 4, 5, 6, 7];
 const cardMatches = {};
 const myElement = document.getElementById('sqr');
@@ -34,10 +33,6 @@ card.addEventListener("click", function () {
 
 
 card.classList.toggle("card-back");
-
-
-// Call startTimer() when the game begins
-// Call stopTimer() when the game ends
 
 
 
@@ -86,9 +81,6 @@ cardsEl.forEach((card) => {
         }
     });
 });
-
-
-
 
 
 function checkForMatch() {
@@ -169,11 +161,10 @@ function createConfettiPiece() {
 
 
 
-    // Randomize properties
-    const size = Math.random() * 5 + 5; // Size between 5px and 15px
+    const size = Math.random() * 5 + 5; 
     const x = Math.random() * window.innerWidth;
-    const color = `hsl(${Math.random() * 360}, 70%, 60%)`; // Random HSL color
-    const duration = Math.random() * 3 + 2; // Duration between 2s and 5s
+    const color = `hsl(${Math.random() * 360}, 70%, 60%)`; 
+    const duration = Math.random() * 3 + 2;
 
     piece.style.width = `${size}px`;
     piece.style.height = `${size}px`;
@@ -183,15 +174,13 @@ function createConfettiPiece() {
 
     container.appendChild(piece);
 
-    // Remove piece after animation completes
     piece.addEventListener('animationend', () => {
         piece.remove();
     });
 }
 
-// Trigger confetti (e.g., on button click or page load)
 function triggerConfetti(count = 50) {
     for (let i = 0; i < count; i++) {
-        setTimeout(createConfettiPiece, i * 50); // Stagger creation
+        setTimeout(createConfettiPiece, i * 50);
     };
 };
