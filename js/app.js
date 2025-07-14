@@ -11,6 +11,13 @@ console.log(cardsEl);
 const reset = document.querySelector("reset");
 
 
+const timerDisplay = document.getElementById('timer');
+
+const size = Math.random() * 5 + 5; // Size between 5px and 15px
+const x = Math.random() * window.innerWidth;
+const color = `hsl(${Math.random() * 360}, 70%, 60%)`; // Random HSL color
+const duration = Math.random() * 3 + 2; // Duration between 2s and 5s
+
 const getPlayerChoice = (event) => {
     console.log('getPlayerChoice:', event);
 };
@@ -28,12 +35,7 @@ card.addEventListener("click", function () {
 });
 
 
-
 card.classList.toggle("card-back");
-
-
-
-const timerDisplay = document.getElementById('timer');
 
 
 // Call startTimer() when the game begins
@@ -63,6 +65,7 @@ const boardEls = document.querySelector('board')
 const messageEl = document.querySelector('#message');
 const resetBtnEl = document.querySelector('#reset');
 const resultDisplayEl = document.querySelector('#result-display');
+resetBtnEl.addEventListener("click", handleClick);
 
 
 /*-------------- Functions -------------*/
@@ -102,28 +105,17 @@ function checkForMatch() {
         winCheck();
         firstCardClicked = undefined
         secondCardClicked = undefined
-        // add reset clicks here
+
     } else {
         const myElement = document.getElementById('statusMessage');
         // removeEventListener("click", (clicked));
         matchedPairs = matchedPairs + 1;
         myElement.textContent = 'Try again.';
-        stopTimer()
         firstCardClicked = undefined
         secondCardClicked = undefined
-        //another kind of click reset here?
     }
 };
 
-// function inTheClick() {
-//     setTimeout(() => {
-//       cardsEl.classList.add('flipped');
-//     }, 1000);
-//  setTimeout(() => {
-//       cardsEl.classList.remove('flipped');
-//     }, 3000);
-//     console.log(squareEls.child);
-// }
 
 function winCheck() {
     if (matchedPairs === 5) {
@@ -132,9 +124,8 @@ function winCheck() {
         myElement.textContent = "WIN! MEMORY ENHANCED.";
         stopTimer()
         triggerConfetti();
-        
-    } else {
 
+    } else {
     }
 }
 
@@ -146,7 +137,7 @@ function startTimer() {
         seconds--;
         const minutes = Math.floor(seconds / 60);
         const remainingSeconds = seconds % 30;
-        timerDisplay.textContent = 
+        timerDisplay.textContent =
             `${minutes < 0 ? '0' : ''}${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
     }, 1000);
 }
@@ -155,47 +146,39 @@ function stopTimer() {
     clearInterval(timerInterval);
 }
 
-
-// function cardBackFaceUp(cardsEl) {
-//     cardsEl.classList.add
-//     ToggleEvent(" ")
-//     console.log(cardBacksElement);
-// }
+function handleClick() {
+  window.location.reload();
+}
 
 
 
 
 
-//LATER:
-// no timer needed if incorrect guesses past limit
-//complete reset button functionality
-
-
-
-// look into flip logic, if not a match, fliips over/match stays, etc with class toggling.
-//winningCombo.push(firstCardClicked, secondCardClicked);
-
-
-/*----------- Event Listeners ----------*/
-
-resetBtnEl.onclick = (reset) => {
-    console.log("reset pressed")
-    // add an actual reset feature here, currently only displays reset text
-    window.location.reload();
-    const myElement = document.getElementById('statusMessage');
-    stopTimer()
-    myElement.textContent = 'Game reset.';
-};
 
 
 
 
-//confetti code
+
+
+
 
 function createConfettiPiece() {
     const container = document.getElementById('confetti-container');
     const piece = document.createElement('div');
     piece.classList.add('confetti-piece');
+
+    /*----------- Event Listeners ----------*/
+
+    resetBtnEl.onclick = (reset) => {
+        console.log("reset pressed")
+        window.location.reload();
+        const myElement = document.getElementById('statusMessage');
+        stopTimer();
+        myElement.textContent = 'Game reset.';
+    };
+
+
+
 
     // Randomize properties
     const size = Math.random() * 5 + 5; // Size between 5px and 15px
@@ -228,9 +211,3 @@ function triggerConfetti(count = 50) {
 
 
 
-
-
-// GRAVEYARD RIP //
-
-// ['✚', '✦', '✩', '✱', '✿', '☺', '☾', '♥', '◐']
-// const icons = [...symbols, ...symbols]
