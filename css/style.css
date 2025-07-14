@@ -102,7 +102,6 @@ stroke-width: 10px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /* background-color: antiquewhite; */
 }
 
 #game {
@@ -156,39 +155,3 @@ stroke-width: 10px;
 .gameTimer {
     display: none;
 }
-/* 
-#confetti-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 9999;
-
-}
-
-.confetti-piece {
-    position: absolute;
-    background-color: var(--confetti-color);
-    border-radius: 0%;
-    opacity: 0.5;
-    animation: fall-and-fade linear forwards;
-}
-
-@keyframes fall-and-fade {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px) rotate(0deg);
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(100vh) rotate(720deg);
-    }
-} */
