@@ -4,8 +4,6 @@ const cards = [0, 1, 2, 3, 4, 5, 6, 7];
 const cardMatches = {};
 const myElement = document.getElementById('sqr');
 cardMatches.matches = [];
-const totalPairs = 8;
-// remember: currently you actually only have 7 matched pairs, some are mismatched
 const cardsEl = document.querySelectorAll(".sqr");
 console.log(cardsEl);
 const reset = document.querySelector("reset");
@@ -13,10 +11,10 @@ const reset = document.querySelector("reset");
 
 const timerDisplay = document.getElementById('timer');
 
-const size = Math.random() * 5 + 5; // Size between 5px and 15px
+const size = Math.random() * 5 + 5; 
 const x = Math.random() * window.innerWidth;
 const color = `hsl(${Math.random() * 360}, 70%, 60%)`; // Random HSL color
-const duration = Math.random() * 3 + 2; // Duration between 2s and 5s
+const duration = Math.random() * 3 + 2; 
 
 const getPlayerChoice = (event) => {
     console.log('getPlayerChoice:', event);
@@ -110,7 +108,7 @@ function checkForMatch() {
         const myElement = document.getElementById('statusMessage');
         // removeEventListener("click", (clicked));
         matchedPairs = matchedPairs + 1;
-        myElement.textContent = 'Try again.';
+        myElement.textContent = 'Try Sorry, you lost.';
         firstCardClicked = undefined
         secondCardClicked = undefined
     }
@@ -122,14 +120,13 @@ function winCheck() {
         console.log("WIN!");
         const myElement = document.getElementById('statusMessage');
         myElement.textContent = "WIN! MEMORY ENHANCED.";
-        stopTimer()
+        stopTimer();
         triggerConfetti();
-
-    } else {
-    }
-}
-
-
+    } else if (matchedPairs === 0){
+        stopTimer();
+        const myElement = document.getElementById('statusMessage');
+        myElement.textContent = "Sorry, you lost.";
+}};
 
 
 function startTimer() {
@@ -206,8 +203,3 @@ function triggerConfetti(count = 50) {
         setTimeout(createConfettiPiece, i * 50); // Stagger creation
     };
 };
-
-
-
-
-
